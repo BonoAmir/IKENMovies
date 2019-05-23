@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">IKEN Movies</string>
+
+
+    <string name="Intro_Img_desc">Image in animation in welcoming screen</string>
+    <string name="search_hint"> search movies</string>
+
+
+
+</resources>
