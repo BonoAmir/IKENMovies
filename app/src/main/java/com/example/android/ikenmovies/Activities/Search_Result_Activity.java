@@ -79,6 +79,7 @@ public class Search_Result_Activity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent backToMainActivity=new Intent(Search_Result_Activity.this,MainActivity.class);
                 startActivity(backToMainActivity);
+                finish();
             }
         });
 

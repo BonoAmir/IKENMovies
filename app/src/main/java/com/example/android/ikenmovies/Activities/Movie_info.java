@@ -42,6 +42,7 @@ public class Movie_info extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 onBackPressed();
+                finish();
 
             }
         });
@@ -57,12 +58,14 @@ public class Movie_info extends AppCompatActivity {
             Picasso.get()
                     .load(getIntent().getStringExtra("movie image"))
                     .fit()
+                    .placeholder(R.drawable.icon)
                     .into(movie_poster);
 
 
             Picasso.get()
                     .load(getIntent().getStringExtra("movie image"))
                     .fit()
+                    .placeholder(R.drawable.icon)
                     .into(backGround_image);
 
 
