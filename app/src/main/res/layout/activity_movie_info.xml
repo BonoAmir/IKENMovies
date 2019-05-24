@@ -7,15 +7,14 @@
     >
 
 
-
     <ImageView
         android:id="@+id/background_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_marginTop="0dp"
-        android:src="@drawable/icon"
-        android:contentDescription="@string/movie_info_img_desc" />
+        android:contentDescription="@string/movie_info_img_desc"
+        android:src="@drawable/icon" />
 
 
     <LinearLayout
@@ -97,5 +96,19 @@
 
 
     </LinearLayout>
+
+
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/ic_chevron_left_black_24dp"
+        android:contentDescription="@string/back_button" />
 
 </RelativeLayout>

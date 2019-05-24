@@ -16,6 +16,7 @@ import android.widget.SearchView;
 import android.widget.TextView;
 
 
+
 import com.example.android.ikenmovies.Adapters.RecycelerViewAdapter;
 import com.example.android.ikenmovies.Network.Utils;
 import com.example.android.ikenmovies.R;
@@ -52,20 +53,12 @@ public class MainActivity extends AppCompatActivity {
         searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName));
 
 
-
-
-
-
-
         recyclerView=findViewById(R.id.recyclerview);
         recyclerView2=findViewById(R.id.recyclerview2);
 
          progressBar = findViewById(R.id.spin_kit);
         Sprite CubeGrid = new CubeGrid();
         progressBar.setIndeterminateDrawable(CubeGrid);
-
-
-
 
 
         recyclerView.setHasFixedSize(true);
@@ -77,26 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        internet_status=findViewById(R.id.internet_connection);
-
-//        if(isConnected()){
-//
-            moviesClass task =new moviesClass();
-            task.execute(comedy);
-
-            moviesClass2 task2 =new moviesClass2();
-            task2.execute(Action);
-
-//            internet_status.setVisibility(View.INVISIBLE);
-//        }
-//        else{
-//        internet_status.setVisibility(View.VISIBLE);
-//        }
-
-
-
-
-
+         isOnline();
 
 
     }
@@ -126,9 +100,6 @@ public class MainActivity extends AppCompatActivity {
              action_adapter=new RecycelerViewAdapter(movies,getApplicationContext() );
 
             recyclerView.setAdapter(action_adapter);
-
-
-
 
 
 
@@ -182,14 +153,26 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-//
-//    public boolean isConnected() {
-//        ConnectivityManager cm =
-//                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-//        NetworkInfo netInfo = cm.getActiveNetworkInfo();
-//        return netInfo != null && netInfo.isConnectedOrConnecting();
-//    }
-//
+    public void isOnline() {
+        ConnectivityManager conMgr = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = conMgr.getActiveNetworkInfo();
+
+        if(netInfo == null || !netInfo.isConnected() || !netInfo.isAvailable()){
+            internet_status=findViewById(R.id.internet_connection);
+            internet_status.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+
+            internet_status=findViewById(R.id.internet_connection);
+            internet_status.setVisibility(View.INVISIBLE);
+            moviesClass task =new moviesClass();
+            task.execute(comedy);
+
+            moviesClass2 task2 =new moviesClass2();
+            task2.execute(Action);
+        }
+    }
 
 
 }

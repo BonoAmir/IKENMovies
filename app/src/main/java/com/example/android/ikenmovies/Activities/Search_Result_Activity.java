@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.android.ikenmovies.Adapters.search_results_adapter;
@@ -29,6 +30,7 @@ public class Search_Result_Activity extends AppCompatActivity {
 
     search_results_adapter adapter;
     TextView moive_exists;
+    ImageButton back_button;
 
 
 
@@ -57,6 +59,15 @@ public class Search_Result_Activity extends AppCompatActivity {
 
 
 
+        back_button=findViewById(R.id.back_button);
+
+        back_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent backToMainActivity=new Intent(Search_Result_Activity.this,MainActivity.class);
+                startActivity(backToMainActivity);
+            }
+        });
 
 
 

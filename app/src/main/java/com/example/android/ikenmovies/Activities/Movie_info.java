@@ -1,7 +1,9 @@
 package com.example.android.ikenmovies.Activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,6 +15,8 @@ public class Movie_info extends AppCompatActivity {
     TextView movie_name, movie_release_date, movie_rating, movie_overView;
 
     ImageView movie_poster, backGround_image;
+
+    ImageView back_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +31,20 @@ public class Movie_info extends AppCompatActivity {
 
         movie_poster =  findViewById(R.id.movie_poster);
         backGround_image =  findViewById(R.id.background_image);
+
+
+        back_button=findViewById(R.id.back_button);
+
+
+        back_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+
+
+
+            }
+        });
 
 
 
