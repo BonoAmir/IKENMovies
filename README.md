@@ -1,4 +1,4 @@
-# IKENMovies    BY : Abanoub Amir . 
+# IKENMovies
 Search and know everything about your favorite movies 
 
 -welcoming screen with simple animation 
