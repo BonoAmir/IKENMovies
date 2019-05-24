@@ -10,14 +10,20 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.android.ikenmovies.Adapters.search_results_adapter;
 import com.example.android.ikenmovies.Network.Utils;
 import com.example.android.ikenmovies.R;
 import com.example.android.ikenmovies.searchview_suggestions_provider.MySuggestionProvider;
+import com.github.ybq.android.spinkit.sprite.Sprite;
+import com.github.ybq.android.spinkit.style.CubeGrid;
 
 import java.util.ArrayList;
+
+import static android.view.View.INVISIBLE;
+import static android.view.View.VISIBLE;
 
 public class Search_Result_Activity extends AppCompatActivity {
 
@@ -31,6 +37,7 @@ public class Search_Result_Activity extends AppCompatActivity {
     search_results_adapter adapter;
     TextView moive_exists;
     ImageButton back_button;
+    ProgressBar progressBar;
 
 
 
@@ -40,6 +47,9 @@ public class Search_Result_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_search__result_);
 
 
+        progressBar = findViewById(R.id.spin_kit);
+        Sprite CubeGrid = new CubeGrid();
+        progressBar.setIndeterminateDrawable(CubeGrid);
 
         Intent intent=getIntent();
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
@@ -70,7 +80,6 @@ public class Search_Result_Activity extends AppCompatActivity {
         });
 
 
-
     }
 
     public class moviesClass extends AsyncTask<String, Void, ArrayList>
@@ -88,6 +97,15 @@ public class Search_Result_Activity extends AppCompatActivity {
             return Utils.fetchBooksData(strings[0]);
         }
 
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressBar.setVisibility(VISIBLE);
+
+
+        }
+
+
 
 
         @Override
@@ -100,14 +118,14 @@ public class Search_Result_Activity extends AppCompatActivity {
             if(movies.size()==0)
             {
                 moive_exists=findViewById(R.id.movie_dosent_exist);
-                moive_exists.setVisibility(View.VISIBLE);
+                moive_exists.setVisibility(VISIBLE);
             }
             else
 
             {
 
                 moive_exists=findViewById(R.id.movie_dosent_exist);
-                moive_exists.setVisibility(View.INVISIBLE);
+                moive_exists.setVisibility(INVISIBLE);
                 adapter = new search_results_adapter(movies, getApplicationContext());
 
                 recyclerView.setAdapter(adapter);
@@ -116,7 +134,7 @@ public class Search_Result_Activity extends AppCompatActivity {
             }
 
 
-
+            progressBar.setVisibility(INVISIBLE);
         }
     }
 
