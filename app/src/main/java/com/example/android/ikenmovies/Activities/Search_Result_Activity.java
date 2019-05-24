@@ -10,13 +10,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.android.ikenmovies.Adapters.RecycelerViewAdapter;
 import com.example.android.ikenmovies.Adapters.search_results_adapter;
-import com.example.android.ikenmovies.Model.Model;
 import com.example.android.ikenmovies.Network.Utils;
 import com.example.android.ikenmovies.R;
+import com.example.android.ikenmovies.searchview_suggestions_provider.MySuggestionProvider;
 
 import java.util.ArrayList;
 
@@ -44,7 +42,7 @@ public class Search_Result_Activity extends AppCompatActivity {
         Intent intent=getIntent();
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
-            doTask(intent,query);
+            doTask(query);
             SearchRecentSuggestions suggestions = new SearchRecentSuggestions(this,
                     MySuggestionProvider.AUTHORITY, MySuggestionProvider.MODE);
             suggestions.saveRecentQuery(query, null);
@@ -53,7 +51,7 @@ public class Search_Result_Activity extends AppCompatActivity {
 
         }
 
-        recyclerView=(RecyclerView)findViewById(R.id.recyclerview);
+        recyclerView=findViewById(R.id.recyclerview);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
 
@@ -64,42 +62,40 @@ public class Search_Result_Activity extends AppCompatActivity {
 
     }
 
-    public class moviesClass extends AsyncTask<String,Void,ArrayList<Model>>
+    public class moviesClass extends AsyncTask<String, Void, ArrayList>
     {
 
         @Override
-        protected ArrayList<Model> doInBackground(String... strings) {
+        protected ArrayList doInBackground(String... strings) {
 
             if (strings.length<1 || strings[0]==null)
             {
                 return null;
             }
 
-            ArrayList<Model> movies= Utils.fetchBooksData(strings[0]);
 
-            return movies;
+            return Utils.fetchBooksData(strings[0]);
         }
 
 
 
         @Override
-        protected void onPostExecute(ArrayList<Model> movies) {
+        protected void onPostExecute(ArrayList movies) {
 
 
 
 
-            movies.addAll(movies);
 
             if(movies.size()==0)
             {
-                moive_exists=(TextView)findViewById(R.id.movie_dosent_exist);
+                moive_exists=findViewById(R.id.movie_dosent_exist);
                 moive_exists.setVisibility(View.VISIBLE);
             }
             else
 
             {
 
-                moive_exists=(TextView)findViewById(R.id.movie_dosent_exist);
+                moive_exists=findViewById(R.id.movie_dosent_exist);
                 moive_exists.setVisibility(View.INVISIBLE);
                 adapter = new search_results_adapter(movies, getApplicationContext());
 
@@ -113,7 +109,7 @@ public class Search_Result_Activity extends AppCompatActivity {
         }
     }
 
-    private void doTask(Intent intent,String query)
+    private void doTask(String query)
     {
 
         moviesClass task=new moviesClass();

@@ -1,4 +1,4 @@
-package com.example.android.ikenmovies.Activities;
+package com.example.android.ikenmovies.searchview_suggestions_provider;
 
 import android.content.SearchRecentSuggestionsProvider;
 

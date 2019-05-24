@@ -27,7 +27,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="movie title"
                 android:id="@+id/movie_title"
                 android:textStyle="bold"
                 android:textSize="30sp"
@@ -42,14 +41,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                />
+                android:contentDescription="@string/movie_info_img_desc" />
 
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/overview"
-                android:text="overview"
                 android:textSize="15sp"
                 android:textStyle="italic"
                 android:layout_margin="15dp"/>

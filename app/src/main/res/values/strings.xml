@@ -5,6 +5,23 @@
     <string name="Intro_Img_desc">Image in animation in welcoming screen</string>
     <string name="search_hint"> search movies</string>
 
+    <string name="first_recyclerView_genre"> Comedy </string>
+
+    <string name="second_recyclerView_genre"> Action </string>
+
+    <string name="movie_info_img_desc"> movie poster </string>
+
+
+    <string name="movie_dosent_exist"> Movie Dosent Exist</string>
+
+    <string name="no_internet"> No Internet Connection</string>
+
+
+
+
+
+
+
 
 
 </resources>

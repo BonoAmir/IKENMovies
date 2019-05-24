@@ -7,6 +7,17 @@
     tools:context=".Activities.MainActivity"
    >
 
+
+    <TextView
+        android:id="@+id/internet_connection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:text="@string/no_internet"
+        android:textColor="#fff"
+        android:textSize="25sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -29,7 +40,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Comedy"
+        android:text="@string/first_recyclerView_genre"
         android:textSize="20sp"
         android:textColor="#0072e7"
         android:layout_margin="10dp"
@@ -48,7 +59,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Action"
+        android:text="@string/second_recyclerView_genre"
         android:textSize="20sp"
         android:textColor="#0072e7"
         android:layout_margin="10dp"

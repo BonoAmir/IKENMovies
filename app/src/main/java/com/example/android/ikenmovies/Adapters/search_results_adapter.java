@@ -19,8 +19,8 @@ import java.util.ArrayList;
 
 public class search_results_adapter extends RecyclerView.Adapter<search_results_adapter.ViewHolder> {
 
-    ArrayList<Model> movies;
-    Context context;
+    private ArrayList<Model> movies;
+    private Context context;
 
 
 
@@ -89,7 +89,7 @@ public class search_results_adapter extends RecyclerView.Adapter<search_results_
     }
 
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    static class ViewHolder extends RecyclerView.ViewHolder{
 
         ImageView movie_image ;
         TextView movie_title,movie_overView,movie_release_date;
@@ -97,12 +97,12 @@ public class search_results_adapter extends RecyclerView.Adapter<search_results_
 
 
 
-        public ViewHolder(final View itemView) {
+        ViewHolder(final View itemView) {
             super(itemView);
-            movie_image=(ImageView)itemView.findViewById(R.id.movie_image);
-            movie_title=(TextView)itemView.findViewById(R.id.movie_title) ;
-            movie_overView=(TextView)itemView.findViewById(R.id.overview);
-            movie_release_date=(TextView)itemView.findViewById(R.id.release_date);
+            movie_image=itemView.findViewById(R.id.movie_image);
+            movie_title=itemView.findViewById(R.id.movie_title) ;
+            movie_overView=itemView.findViewById(R.id.overview);
+            movie_release_date=itemView.findViewById(R.id.release_date);
 
 
 

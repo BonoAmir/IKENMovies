@@ -22,15 +22,10 @@ import java.util.ArrayList;
 public class Utils {
 
 
-    static String movie_poster,movie_title,date,overview;
-    static double rating;
-
-
-
-    public static ArrayList<Model> fetchBooksData(String StirngURL)
+    public static ArrayList fetchBooksData(String StirngURL)
     {
         String Jsonresponse="";
-        ArrayList<Model> movies=new ArrayList<Model>();
+        ArrayList movies;
         URL url=createUrl(StirngURL);
         try {
             Jsonresponse=makeHttpRequest(url);
@@ -76,17 +71,19 @@ public class Utils {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        if (httpURLConnection.getResponseCode()==200)
-        {
-            inputStream=httpURLConnection.getInputStream();
-            JsonResponse=readFromStream(inputStream);
+        if (httpURLConnection != null && httpURLConnection.getResponseCode() == 200) {
+            inputStream = httpURLConnection.getInputStream();
+            JsonResponse = readFromStream(inputStream);
 
         }
 
-        httpURLConnection.disconnect();
+        if (httpURLConnection != null) {
+            httpURLConnection.disconnect();
+        }
 
-        inputStream.close();
-
+        if (inputStream != null) {
+            inputStream.close();
+        }
 
 
         return JsonResponse;
@@ -111,7 +108,7 @@ public class Utils {
         return output.toString();
     }
 
-    private static ArrayList<Model> extractFeatureFromJson(String output)
+    private static ArrayList extractFeatureFromJson(String output)
     {
 
 
@@ -121,7 +118,7 @@ public class Utils {
         }
 
 
-        ArrayList<Model> movies= new ArrayList();
+        ArrayList movies= new ArrayList();
 
         try {
 
@@ -134,15 +131,15 @@ public class Utils {
             for (int i =0; i<results.length();i++) {
                 JSONObject movie = results.getJSONObject(i);
 
-                movie_poster = movie.getString("poster_path");
+                String movie_poster = movie.getString("poster_path");
 
-                movie_title = movie.getString("title");
+                String movie_title = movie.getString("title");
 
-                rating = movie.getDouble("vote_average");
+                double rating = movie.getDouble("vote_average");
 
-                date = movie.getString("release_date");
+                String date = movie.getString("release_date");
 
-                overview = movie.getString("overview");
+                String overview = movie.getString("overview");
 
 
                 movies.add(new Model(movie_poster, movie_title, rating, date, overview));

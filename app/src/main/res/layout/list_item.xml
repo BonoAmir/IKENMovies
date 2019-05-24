@@ -29,16 +29,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/icon" />
+                android:src="@drawable/icon"
+                android:contentDescription="@string/movie_info_img_desc" />
 
 
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="12dp"
-                android:orientation="horizontal">
 
             <TextView
 
@@ -49,7 +43,6 @@
                 android:layout_marginTop="9dp"
                 android:gravity="center"
                 android:layout_centerHorizontal="true"
-                android:text="movie name"
                 android:textColor="#fff" />
 
             <TextView
@@ -64,7 +57,6 @@
                 android:layout_marginEnd="6dp"
                 android:layout_marginRight="6dp"
                 android:background="@drawable/rectangle"
-                android:text="1"
                 android:textColor="#fff"
                 android:padding="5dp"/>
 

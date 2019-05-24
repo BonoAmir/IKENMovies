@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="0dp"
         android:src="@drawable/icon"
-        />
+        android:contentDescription="@string/movie_info_img_desc" />
 
 
     <LinearLayout
@@ -39,21 +39,22 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="20dp"
-                android:src="@drawable/icon" />
+                android:src="@drawable/icon"
+                android:contentDescription="@string/movie_info_img_desc" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="5dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginEnd="5dp">
 
                 <TextView
                     android:id="@+id/movie_rating"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:background="@drawable/circle2"
-                    android:text="1"
                     android:textColor="#fff"
                     android:textSize="15sp"
                     android:gravity="center"/>
@@ -64,7 +65,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="movie name"
                     android:textColor="#004c9b "
                     android:textSize="25sp"
                     android:textStyle="italic"
@@ -75,8 +75,7 @@
                 <TextView
                     android:id="@+id/release_date"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="2014"
+                    android:layout_height="0dp"
                     android:textSize="15sp"
                     android:layout_weight="0"/>
 
@@ -91,7 +90,6 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="15dp"
-            android:text="efewfhjbefjewhkfnekfjnkjslbfjlkebwlfjkebwkjlfeklfhlkewjhfkjewhfjlewkhfjkewhfjkewfhjlewkfhkjewhfejwklhfkwejhfkjewhfjehgjehgfjlehflkewjhjkefhkuewhfiewhfklewfnkjewfhkjewfjkewfhkjewhfkjewhfkjewhfkewhfkjewhfljkewhfkjewhfljkewhfjkewhfjlkewfhjekwhfjkewfhjkewfhkjewhfklewhfjkewfhlkjewhfjkewhlfjkewhfjkewhfkjewfhwejkfhlwekfhwfl"
             android:textColor="#004c9b"
             android:textSize="20sp"/>
 

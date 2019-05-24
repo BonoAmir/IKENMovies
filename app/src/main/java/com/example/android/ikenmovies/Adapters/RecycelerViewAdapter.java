@@ -2,7 +2,6 @@ package com.example.android.ikenmovies.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
@@ -23,9 +22,8 @@ import java.util.ArrayList;
 public class RecycelerViewAdapter extends RecyclerView.Adapter<RecycelerViewAdapter.ViewHolder> {
 
 
-    ArrayList<Model> movies;
-    Context context;
-    String date, overView;
+    private ArrayList<Model> movies;
+    private Context context;
 
     public RecycelerViewAdapter(ArrayList<Model> movies, Context context) {
         this.movies = movies;
@@ -36,7 +34,7 @@ public class RecycelerViewAdapter extends RecyclerView.Adapter<RecycelerViewAdap
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
 
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item, viewGroup, false);
@@ -46,7 +44,7 @@ public class RecycelerViewAdapter extends RecyclerView.Adapter<RecycelerViewAdap
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
 
         final Model model = movies.get(position);
         if (model.getMovie_image().length() != 0) {
@@ -87,8 +85,7 @@ public class RecycelerViewAdapter extends RecyclerView.Adapter<RecycelerViewAdap
 
         }
 
-        date = model.getDate1();
-        overView = model.getOverView();
+
 
 
 
@@ -117,7 +114,7 @@ public class RecycelerViewAdapter extends RecyclerView.Adapter<RecycelerViewAdap
         return 20;
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    static class ViewHolder extends RecyclerView.ViewHolder{
 
         ImageView movie_image ;
         TextView movie_name;
@@ -125,11 +122,11 @@ public class RecycelerViewAdapter extends RecyclerView.Adapter<RecycelerViewAdap
 
 
 
-        public ViewHolder(final View itemView) {
+        ViewHolder(final View itemView) {
             super(itemView);
-            movie_image=(ImageView)itemView.findViewById(R.id.img);
-            movie_name=(TextView)itemView.findViewById(R.id.movie_name) ;
-            movie_rating=(TextView)itemView.findViewById(R.id.movie_rating);
+            movie_image=itemView.findViewById(R.id.img);
+            movie_name=itemView.findViewById(R.id.movie_name) ;
+            movie_rating=itemView.findViewById(R.id.movie_rating);
 
 
 

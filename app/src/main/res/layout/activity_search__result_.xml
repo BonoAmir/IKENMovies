@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="this movie does not exist"
+        android:text="@string/movie_dosent_exist"
         android:textColor="#004c9b"
         android:textSize="30sp"
         android:visibility="invisible"/>
