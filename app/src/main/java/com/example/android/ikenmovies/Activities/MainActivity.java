@@ -43,42 +43,47 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        //init searchView
         SearchView searchView=findViewById(R.id.search);
-
-
         SearchManager searchManager=(SearchManager)getSystemService(Context.SEARCH_SERVICE);
-
         ComponentName componentName=new ComponentName(getApplicationContext(),Search_Result_Activity.class);
-
         searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName));
 
 
+
+        //init recyclerViews
         recyclerView=findViewById(R.id.recyclerview);
         recyclerView2=findViewById(R.id.recyclerview2);
-
-         progressBar = findViewById(R.id.spin_kit);
-        Sprite CubeGrid = new CubeGrid();
-        progressBar.setIndeterminateDrawable(CubeGrid);
-
-
         recyclerView.setHasFixedSize(true);
         recyclerView2.setHasFixedSize(true);
-
-
         recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
         recyclerView2.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
 
 
 
+        //init progressBar
+        progressBar = findViewById(R.id.spin_kit);
+        Sprite CubeGrid = new CubeGrid();
+        progressBar.setIndeterminateDrawable(CubeGrid);
+
+
+
+
+
+        //checks if the device is connected to the internet or not then starts the asyncTask it it is connected
          isOnline();
 
 
 
     }
 
+
+    //this class is for the first recycler view(comedy) to fetch data ** made the app runs only in portrait so no need for loaders here.
     public class moviesClass extends AsyncTask<String, Void, ArrayList>
     {
 
+
+        //checks if there is an api link or not  if yes start fetching the data in background
         @Override
         protected ArrayList doInBackground(String... strings) {
 
@@ -89,8 +94,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-            return Utils.fetchBooksData(strings[0]);
+            return Utils.fetchMoviesData(strings[0]);
         }
+
+
 
 
 
@@ -107,6 +114,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    //this class is for the first recycler view(comedy) to fetch data .
+
     public class moviesClass2 extends AsyncTask<String, Void, ArrayList>
     {
 
@@ -119,9 +129,10 @@ public class MainActivity extends AppCompatActivity {
             }
 
 
-            return Utils.fetchBooksData(strings[0]);
+            return Utils.fetchMoviesData(strings[0]);
         }
 
+        //while fetching the data in the background show the progress bar
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -154,6 +165,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    //checks if the device is connected to the internet or not then calls the asyncTasks if yes .
     public void isOnline() {
         ConnectivityManager conMgr = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = conMgr.getActiveNetworkInfo();

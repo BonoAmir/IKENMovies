@@ -21,32 +21,34 @@ public class Movie_info extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_info);
 
+
+
+
+
         movie_name =  findViewById(R.id.movie_name);
         movie_release_date =  findViewById(R.id.release_date);
         movie_rating =  findViewById(R.id.movie_rating);
         movie_overView =  findViewById(R.id.overview);
-
-
         movie_poster =  findViewById(R.id.movie_poster);
         backGround_image =  findViewById(R.id.background_image);
-
-
         back_button=findViewById(R.id.back_button);
 
 
+
+
+
+        //when user press the back button it takes him to the previous activity if he came from main activity  or search activity because this activity can be accessed from 2 activities.
         back_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
-
-
 
             }
         });
 
 
 
-
+            //displaying the movie info in the UI ** used picasso (https://square.github.io/picasso/)  here to show the movie poster.
             movie_name.setText(getIntent().getStringExtra("movie title"));
             movie_release_date.setText(getIntent().getStringExtra("movie release date"));
             movie_rating.setText(getIntent().getStringExtra("movie rating"));

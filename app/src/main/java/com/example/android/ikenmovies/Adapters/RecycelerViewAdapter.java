@@ -37,6 +37,7 @@ public class RecycelerViewAdapter extends RecyclerView.Adapter<RecycelerViewAdap
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
 
+        //assigning the layout to the recyclerView.
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item, viewGroup, false);
         return new ViewHolder(v);
 
@@ -61,6 +62,7 @@ public class RecycelerViewAdapter extends RecyclerView.Adapter<RecycelerViewAdap
         holder.movie_name.setText(model.getMovie_title());
 
 
+        // the color of the rating number in the main activity
         if (model.getMovie_rating() <= 6.5 ) {
 
             int color = ContextCompat.getColor(context, R.color.red);
@@ -88,7 +90,7 @@ public class RecycelerViewAdapter extends RecyclerView.Adapter<RecycelerViewAdap
 
 
 
-
+//when the user selects a movie and press it it will take him to the info activity and sends the movie info through the intent to be displayed int he info activity.
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

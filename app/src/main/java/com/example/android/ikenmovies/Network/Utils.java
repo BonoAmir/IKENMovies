@@ -22,7 +22,7 @@ import java.util.ArrayList;
 public class Utils {
 
 
-    public static ArrayList fetchBooksData(String StirngURL)
+    public static ArrayList fetchMoviesData(String StirngURL)
     {
         String Jsonresponse="";
         ArrayList movies;
@@ -39,6 +39,8 @@ public class Utils {
 
 
     }
+
+    //converting the string of the api to url
     private static URL createUrl(String stringURL)
 
 
@@ -55,6 +57,8 @@ public class Utils {
 
     }
 
+
+    //establishing network connection
 
     private static String makeHttpRequest(URL url) throws IOException {
         String JsonResponse="";
@@ -108,6 +112,7 @@ public class Utils {
         return output.toString();
     }
 
+    //reading data from the api feedback
     private static ArrayList extractFeatureFromJson(String output)
     {
 

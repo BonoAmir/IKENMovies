@@ -29,11 +29,7 @@ public class Search_Result_Activity extends AppCompatActivity {
 
 
 
-
-
-
     RecyclerView recyclerView;
-
     search_results_adapter adapter;
     TextView moive_exists;
     ImageButton back_button;
@@ -51,6 +47,8 @@ public class Search_Result_Activity extends AppCompatActivity {
         Sprite CubeGrid = new CubeGrid();
         progressBar.setIndeterminateDrawable(CubeGrid);
 
+
+        //this part is all about the searchView sending the query(what the user wrote in the search) and receiving  it in this activity .
         Intent intent=getIntent();
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
@@ -63,12 +61,17 @@ public class Search_Result_Activity extends AppCompatActivity {
 
         }
 
-        recyclerView=findViewById(R.id.recyclerview);
 
+
+
+        recyclerView=findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
 
 
 
+
+
+        // sending user back to main activity after pressing back button
         back_button=findViewById(R.id.back_button);
 
         back_button.setOnClickListener(new View.OnClickListener() {
@@ -94,7 +97,7 @@ public class Search_Result_Activity extends AppCompatActivity {
             }
 
 
-            return Utils.fetchBooksData(strings[0]);
+            return Utils.fetchMoviesData(strings[0]);
         }
 
         @Override
@@ -138,8 +141,11 @@ public class Search_Result_Activity extends AppCompatActivity {
         }
     }
 
+
+    //building the api link and sending it to the asyncTask to fetch data .
     private void doTask(String query)
     {
+
 
         moviesClass task=new moviesClass();
         task.execute("http://api.themoviedb.org/3/search/movie?api_key=b3070a5d3abfb7c241d2688d066914e7&query="+query+"&page=1");

@@ -29,6 +29,8 @@ public class Welcome_Screen extends AppCompatActivity {
         FromBottom=AnimationUtils.loadAnimation(this,R.anim.from_bottom);
         FromTop=AnimationUtils.loadAnimation(this,R.anim.from_top);
 
+
+        // simple animation that makes the img and the btn movie on the x axis.
         img.setAnimation(FromTop);
         btn.setAnimation(FromBottom);
 
