@@ -63,7 +63,7 @@ public class RecycelerViewAdapter extends RecyclerView.Adapter<RecycelerViewAdap
         holder.movie_name.setText(model.getMovie_title());
 
 
-        if (model.getMovie_rating() <= 5) {
+        if (model.getMovie_rating() <= 6.5 ) {
 
             int color = ContextCompat.getColor(context, R.color.red);
 
@@ -71,7 +71,7 @@ public class RecycelerViewAdapter extends RecyclerView.Adapter<RecycelerViewAdap
             holder.movie_rating.setText(String.valueOf(model.getMovie_rating()));
         }
 
-        if (model.getMovie_rating() > 5 && model.getMovie_rating() < 8) {
+        if (model.getMovie_rating() > 6.5 && model.getMovie_rating() < 8) {
             int color = ContextCompat.getColor(context, R.color.yellow);
 
             holder.movie_rating.setTextColor(color);
