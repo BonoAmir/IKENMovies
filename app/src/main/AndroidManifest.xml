@@ -37,7 +37,8 @@
             android:name=".Activities.Movie_info"
             android:screenOrientation="portrait" />
         <activity android:name=".Activities.Search_Result_Activity"
-            android:launchMode="singleTop">
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
 
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH"/>
