@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
          isOnline();
 
 
+
     }
 
     public class moviesClass extends AsyncTask<String, Void, ArrayList>

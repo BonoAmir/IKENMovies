@@ -38,6 +38,7 @@ public class Welcome_Screen extends AppCompatActivity {
             public void onClick(View v) {
                 Intent goToMainScreen=new Intent(Welcome_Screen.this,MainActivity.class);
                 startActivity(goToMainScreen);
+                finish();
             }
         });
 
