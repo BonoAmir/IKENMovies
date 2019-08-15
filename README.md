@@ -29,7 +29,7 @@ Search and know everything about your favorite movies
 
 
 Notes:
--In Main activity i used AsyncTask to run networking in the back thread and no need for loaders beacuse i defined the screen orientation of the app as portait.
+-In Main activity i used AsyncTask to run networking in the back thread .
 
 -Used picasso library  (https://square.github.io/picasso/) to display images from api.
 
